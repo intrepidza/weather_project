@@ -15,6 +15,7 @@ def main():
         generate_csv_and_dataframe(output, run_time)
 
         read_and_process()
+        
     except Exception as e:
         print_and_log(e)    
     
