@@ -1,9 +1,11 @@
 __pycache__/
 .vscode/
+etc/
 Include/
 Lib/
 output_files/
 Scripts/
+share/
 pyvenv.cfg
 weather_log.log
 temp.py
