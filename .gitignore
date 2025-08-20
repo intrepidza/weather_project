@@ -1,5 +1,8 @@
-pyvenv.cfg
+__pycache__/
+.vscode/
+Include/
+Lib/
 output_files/
 Scripts/
-Lib/
+pyvenv.cfg
 weather_log.log
