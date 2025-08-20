@@ -21,7 +21,24 @@ def create_logger(logger_name):
     
 
 def deco_print_and_log(msg):
+def deco_print_and_log(msg):
     """Logs message and if debug mode is enabled, prints to console."""
+    def inner_deco(func):
+        def wrapper(*args):
+            msg_lst = [' - Begin', ' - End']
+
+            _print_and_log(msg  + msg_lst[0])
+
+            result = func(*args)
+
+            _print_and_log(msg  + msg_lst[1])
+
+            return result
+        return wrapper
+    return inner_deco
+
+
+def _print_and_log(msg, logger=create_logger('__main__')):
     def inner_deco(func):
         def wrapper(*args):
             msg_lst = [' - Begin', ' - End']
@@ -42,7 +59,6 @@ def _print_and_log(msg, logger=create_logger('__main__')):
     if debug_mode:
         print(_format_line(msg))
 
-
 def _format_line(msg):
     """Adds a format line after each message."""
     format_line = '-----==========-----'
@@ -57,7 +73,12 @@ def download_weather_data(url, run_time):
         result = requests.get(url)
     except:
         _print_and_log(Exception)   
+    try:
+        result = requests.get(url)
+    except:
+        _print_and_log(Exception)   
 
+    _print_and_log(f'Status code: {result.status_code}')
     _print_and_log(f'Status code: {result.status_code}')
 
     _print_and_log('Saving source file - Begin')
@@ -73,6 +94,7 @@ def download_weather_data(url, run_time):
     _print_and_log(f"Source file: {src_file}")
     _print_and_log('Saving source file - End')
 
+    return json.loads(result.text)
     return json.loads(result.text)
 
 
