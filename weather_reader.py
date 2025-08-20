@@ -1,40 +1,19 @@
 import pandas as pd
-import os
 from pathlib import Path as p
+from weather_tools import *
 
-os.stat
+@deco_print_and_log("Read latest Dataframe CSV and format")
+def read_and_process(file=None):
+    if not file:    # Get latest available file:
+        cur_dir = p.cwd()
+        output_dir = cur_dir / "output_files"
+        files_by_pattern = output_dir.glob('output_file_*')
+        file = max(files_by_pattern, key=lambda f: f.stat().st_mtime)
 
-cur_dir = p.cwd()
+    try:
+        df = pd.read_csv(file, encoding='utf-8')
 
-output_dir = cur_dir / "output_files"
-
-files_by_pattern = output_dir.glob('output_file_*')
-
-newest_file = max(files_by_pattern, key=lambda f: f.stat().st_mtime)
-
-print(newest_file)
-
-df = pd.read_csv(newest_file, encoding='utf-8').convert_dtypes()
-
-print(df.info())
-
-df = df.explode('hourly').reset_index()
-df['hourly_units'] = df['hourly_units'].iloc[0]  # Assuming 'hourly_units' is consistent across rows
-df = df.pivot(columns='hourly_units', values='hourly').reset_index()
-
-print(df.to_string())
-
-# print(pd.DataFrame(df['hourly'].reset_index(drop=True)))
-
-# print(df[''].to_string())
-
-# for x in p.iterdir(output_dir):
-#     if x.is_file():
-#         if x.glob('output_file_'):
-#             print(x)
-
-# file_path = os.path.abspath('.')
-
-# os.path.fi
-
-# df = pd.read_csv(f"{file_path}\\output_files")
+        df['time'] = pd.to_datetime(df['time'])
+        df.to_csv('test.csv')
+    except Exception as e:
+        print_and_log('Issue reading or generating file: {e}')

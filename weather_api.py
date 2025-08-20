@@ -1,60 +1,9 @@
 import requests
 import json
 import pandas as pd
-import logging
 from datetime import datetime
 
-
-debug_mode = True
-
-def create_logger(logger_name):
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S',
-        filename='weather_log.log',
-        filemode='a'
-        )
-
-    return logging.getLogger(logger_name)
-    
-
-def deco_print_and_log(msg):
-    """Logs message and if debug mode is enabled, prints to console."""
-    def inner_deco(func):
-        def wrapper(*args):
-            msg_lst = [' - Begin', ' - End']
-
-            _print_and_log(msg  + msg_lst[0], True)
-
-            result = func(*args)
-
-            _print_and_log(msg  + msg_lst[1], True)
-
-            return result
-        return wrapper
-    return inner_deco
-
-
-def _print_and_log(msg, header=False, logger=create_logger('__main__')):
-    if header:
-        pass
-    else:
-        msg = '     ' + msg
-    
-    logger.info(msg)
-    if debug_mode:
-        print(_format_line(msg, header))
-
-
-def _format_line(msg, header=True):
-    """Adds a format line after each message."""
-    if header:
-        format_line = '-----==========-----'
-    else:
-        format_line = '     -----==========-----'
-
-    return msg + '\n' + format_line
+from weather_tools import *
 
 
 @deco_print_and_log('Download weather data')
@@ -63,27 +12,24 @@ def download_weather_data(url, run_time):
 
     try:
         result = requests.get(url)
-    except:
-        _print_and_log(Exception)   
-    try:
-        result = requests.get(url)
-    except:
-        _print_and_log(Exception)   
+        result.raise_for_status()
+    except Exception as e:
+        print_and_log(f"error downloading data: {e}")
+ 
+    print_and_log(f'Status code: {result.status_code}')
 
-    _print_and_log(f'Status code: {result.status_code}')
-
-    _print_and_log('Saving source file - Begin')
+    print_and_log('Saving source file - Begin')
     
     src_file = f'.\\output_files\\weather_file_{run_time}.json'
 
     try:
-        with open(src_file, mode='a') as f:
+        with open(src_file, mode='w') as f:
             json.dump(result.json(), f, indent=4)
-    except:
-        _print_and_log(Exception)
+    except Exception as e:
+        print_and_log(e)
 
-    _print_and_log(f"Source file: {src_file}")
-    _print_and_log('Saving source file - End')
+    print_and_log(f"Source file: {src_file}")
+    print_and_log('Saving source file - End')
 
     return json.loads(result.text)
 
@@ -92,16 +38,22 @@ def download_weather_data(url, run_time):
 def generate_csv_and_dataframe(input, run_time):
     """Generates csv and returns dataframe."""
     
-    _print_and_log('Saving destination file - Begin')
+    print_and_log('Saving destination file - Begin')
     dest_file = f".\\output_files\\output_file_{run_time}.csv"
     
     try:
-        df = pd.DataFrame(input)
-        df.to_csv(dest_file)
-    except:
-        _print_and_log(Exception)
+        df = pd.DataFrame(input["hourly"], columns=input["hourly_units"])
 
-    _print_and_log(f"Destination file: {dest_file}")
-    _print_and_log('Saving destination file - End')
+        # Add scalar metadata to every row
+        for k, v in input.items():
+            if k not in ["hourly", "hourly_units"]:  # exclude list-style fields
+                df[k] = v
+
+        df.to_csv(dest_file)
+    except Exception as e:
+        print_and_log(f"Error when generating Dataframe or file {e}")
+
+    print_and_log(f"Destination file: {dest_file}")
+    print_and_log('Saving destination file - End')
     
     return df
