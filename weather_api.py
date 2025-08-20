@@ -4,7 +4,7 @@ import pandas as pd
 import logging
 from datetime import datetime
 # from pathlib import Path
-import os
+# import os
 
 debug_mode = True
 
@@ -21,47 +21,40 @@ def create_logger(logger_name):
     
 
 def deco_print_and_log(msg):
-def deco_print_and_log(msg):
     """Logs message and if debug mode is enabled, prints to console."""
     def inner_deco(func):
         def wrapper(*args):
             msg_lst = [' - Begin', ' - End']
 
-            _print_and_log(msg  + msg_lst[0])
+            _print_and_log(msg  + msg_lst[0], True)
 
             result = func(*args)
 
-            _print_and_log(msg  + msg_lst[1])
+            _print_and_log(msg  + msg_lst[1], True)
 
             return result
         return wrapper
     return inner_deco
 
 
-def _print_and_log(msg, logger=create_logger('__main__')):
-    def inner_deco(func):
-        def wrapper(*args):
-            msg_lst = [' - Begin', ' - End']
-
-            _print_and_log(msg  + msg_lst[0])
-
-            result = func(*args)
-
-            _print_and_log(msg  + msg_lst[1])
-
-            return result
-        return wrapper
-    return inner_deco
-
-
-def _print_and_log(msg, logger=create_logger('__main__')):
+def _print_and_log(msg, header=False, logger=create_logger('__main__')):
+    if header:
+        pass
+    else:
+        msg = '     ' + msg
+    
     logger.info(msg)
     if debug_mode:
-        print(_format_line(msg))
+        print(_format_line(msg, header))
 
-def _format_line(msg):
+
+def _format_line(msg, header=True):
     """Adds a format line after each message."""
-    format_line = '-----==========-----'
+    if header:
+        format_line = '-----==========-----'
+    else:
+        format_line = '     -----==========-----'
+
     return msg + '\n' + format_line
 
 
@@ -79,7 +72,6 @@ def download_weather_data(url, run_time):
         _print_and_log(Exception)   
 
     _print_and_log(f'Status code: {result.status_code}')
-    _print_and_log(f'Status code: {result.status_code}')
 
     _print_and_log('Saving source file - Begin')
     
@@ -95,14 +87,13 @@ def download_weather_data(url, run_time):
     _print_and_log('Saving source file - End')
 
     return json.loads(result.text)
-    return json.loads(result.text)
 
 
 @deco_print_and_log('Generate CSV and DataFrame')
 def generate_csv_and_dataframe(input, run_time):
     """Generates csv and returns dataframe."""
     
-    _print_and_log('    Saving destination file - Begin')
+    _print_and_log('Saving destination file - Begin')
     dest_file = f".\\output_files\\output_file_{run_time}.csv"
     
     try:
@@ -111,7 +102,7 @@ def generate_csv_and_dataframe(input, run_time):
     except:
         _print_and_log(Exception)
 
-    _print_and_log(f"   Destination file: {dest_file}")
-    _print_and_log('    Saving destination file - End')
+    _print_and_log(f"Destination file: {dest_file}")
+    _print_and_log('Saving destination file - End')
     
     return df

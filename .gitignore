@@ -6,4 +6,4 @@ output_files/
 Scripts/
 pyvenv.cfg
 weather_log.log
-test.py
+temp.py
