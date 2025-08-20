@@ -3,8 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 def generate_streamlit_data(file):
-    
-    df = pd.read_csv('output_Files\\test.csv')
+    df = pd.read_csv('test.csv')
 
     st.title("Mobile Dash")
     st.write("API Data Visualization")

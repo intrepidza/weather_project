@@ -13,8 +13,7 @@ def read_and_process(file=None):
 
     try:
         df = pd.read_csv(file, encoding='utf-8')
-
         df['time'] = pd.to_datetime(df['time'])
-        df.to_csv('output_files\\test.csv')
+        df.to_csv('test.csv')
     except Exception as e:
         print_and_log('Issue reading or generating file: {e}')
