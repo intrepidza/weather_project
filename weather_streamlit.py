@@ -8,3 +8,6 @@ st.title("Mobile Dash")
 st.write("API Data Visualization")
 fig = px.scatter(df, x="time", y="temperature_2m")
 st.plotly_chart(fig, use_container_width=True)
+
+fig2 = px.scatter(df, x="time", y="precipitation_probability")
+st.plotly_chart(fig2, use_container_width=True)
