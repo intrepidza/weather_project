@@ -9,3 +9,5 @@ share/
 pyvenv.cfg
 weather_log.log
 temp.py
+.env
+.streamlit/

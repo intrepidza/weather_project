@@ -1,13 +1,42 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import sys
+import time
+
+from weather_connections import *
 
 
 def generate_streamlit_data():
-    df = pd.read_csv('test.csv')
+    # df = pd.read_csv('test.csv')
+
+    try:
+        supabase = create_supabase_connection()
+
+        connect = supabase[0]
+        user = supabase[1]
+
+        response = (
+            connect.table("test")
+            .select("*")
+            .execute()
+        )
+
+        df = pd.DataFrame(response.data)
+
+    except Exception as e:
+        print(f"Error when attempting to access Supabase or generate DataFrame: {e}")
+        # sys.exit()
 
     st.title("Mobile Dash")
     st.write("API Data Visualization")
+
+    # while len(df) == 0:
+    #     time.sleep(5)
+
+    cols = ['time','temperature_2m','rain','wind_direction_10m','wind_speed_10m','relative_humidity_2m','precipitation_probability','apparent_temperature','showers']
+    df = df[cols]
+
     fig = px.scatter(df, x="time", y="temperature_2m")
     st.plotly_chart(fig, use_container_width=True)
 

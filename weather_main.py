@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 from weather_api import *
 from weather_reader import *
@@ -15,6 +15,8 @@ def main():
         generate_csv_and_dataframe(output, run_time)
 
         read_and_process()
+
+        load_into_supabase()
         
     except Exception as e:
         print_and_log(e)    

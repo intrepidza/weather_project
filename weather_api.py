@@ -1,7 +1,6 @@
 import requests
 import json
 import pandas as pd
-from datetime import datetime
 
 from weather_tools import *
 
@@ -39,7 +38,7 @@ def generate_csv_and_dataframe(input, run_time):
     """Generates csv and returns dataframe."""
     
     print_and_log('Saving destination file - Begin')
-    dest_file = f".\\output_files\\output_file_{run_time}.csv"
+    dest_file = f".\\output_files\\output_file_{run_time}" 
     
     try:
         df = pd.DataFrame(input["hourly"], columns=input["hourly_units"])
@@ -49,7 +48,9 @@ def generate_csv_and_dataframe(input, run_time):
             if k not in ["hourly", "hourly_units"]:  # exclude list-style fields
                 df[k] = v
 
-        df.to_csv(dest_file)
+        df.to_csv(dest_file + ".csv", index=False)
+        # df.to_parquet(dest_file + ".parquet")
+
     except Exception as e:
         print_and_log(f"Error when generating Dataframe or file {e}")
 
