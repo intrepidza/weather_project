@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import sys
-import time
+# import sys
+# import time
 
 from weather_connections import *
 
@@ -40,7 +40,7 @@ def generate_streamlit_data():
     fig = px.scatter(df, x="time", y="temperature_2m")
     st.plotly_chart(fig, use_container_width=True)
 
-    fig2 = px.scatter(df, x="time", y="apparent_temperature")
+    fig2 = px.scatter(df, x="time", y="apparent_temperature", color='orange')
     st.plotly_chart(fig2, use_container_width=True)
 
     fig3 = px.scatter(df, x="time", y="precipitation_probability")
@@ -48,6 +48,7 @@ def generate_streamlit_data():
 
     fig4 = px.scatter(df, x="time", y="relative_humidity_2m")
     st.plotly_chart(fig4, use_container_width=True)
+
 
 
 if __name__ == '__main__':

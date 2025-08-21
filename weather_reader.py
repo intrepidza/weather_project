@@ -48,4 +48,4 @@ def load_into_supabase():
 
     connect.auth.sign_out()
 
-load_into_supabase()
+# load_into_supabase()
