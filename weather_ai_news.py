@@ -1,9 +1,17 @@
-import sys
+# import sys
 from pathlib import Path
 # from google import genai
-from groq import Groq
+# from groq import Groq
 from datetime import datetime
+from dotenv import load_dotenv
 import os
+import json
+
+import requests
+
+api_key=os.environ.get("NEWS_API")
+
+
 
 today = datetime.now().strftime('%Y_%m_%d')
 
@@ -14,6 +22,61 @@ root_path = Path.cwd() #/ 'output_files/'
 
 check_path1 = root_path / file_name1
 check_path2 = root_path / file_name2
+
+
+url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
+response = requests.get(url)
+
+articles = response.json().get("articles", [])
+
+# test = json.loads(response.request)
+
+url2 = f"https://newsapi.org/v2/top-headlines?country=za&apiKey={api_key}"
+response2 = requests.get(url2)
+
+articles2 = response2.json().get("articles", [])
+
+
+# with open('news_dump.txt', 'w') as f:
+#     # f.write(articles)
+#     json.dump(articles, f, indent=4)
+
+# print(articles)
+
+# US data:
+with open('ai_output_2025_08_21.txt','w') as f:
+    try:
+        for article in articles:
+            # f.write(f"**{article['title']}**\n")
+            # f.write(f"{article['description']}\n")
+            # # f.write(f"[Read more]({article['url']})\n")
+            # f.write(f"Published: {article['publishedAt']}\n")
+            f.write(f"* Title: {article['title']}** - Article:{article['description']} - Published: {article['publishedAt']}\n")
+
+    except Exception as e:
+        print("Error! {e}")
+
+# ZA data:
+
+with open('ai_output2_2025_08_21.txt','w') as f:
+    try:
+        for article in articles2:
+            # f.write(f"**{article['title']}**\n")
+            # f.write(f"{article['description']}\n")
+            # # f.write(f"[Read more]({article['url']})\n")
+            # f.write(f"Published: {article['publishedAt']}\n")
+            f.write(f"* Title: {article['title']}** - Article:{article['description']} - Published: {article['publishedAt']}\n")
+
+    except Exception as e:
+        print("Error! {e}")
+
+
+# for article in articles:
+#     print(article)
+    # st.write(f"**{article['title']}**")
+    # st.write(article['description'])
+    # st.write(f"[Read more]({article['url']})")
+    # st.write(f"Published: {article['publishedAt']}")
 
 # if check_path1.exists() or check_path2.exists():
 #     sys.exit()
@@ -31,30 +94,30 @@ check_path2 = root_path / file_name2
 #     contents="Give me a bullet-form output of the latest available biggest news in South Africa today. No need for a disclaimer, just the bullet-points."
 # )
 
-client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY"),
-)
+# client = Groq(
+#     api_key=os.environ.get("GROQ_API_KEY"),
+# )
 
-chat_completion1 = client.chat.completions.create(
-    messages=[
-        {
-            "role": "user",
-            "content": "Give me a bullet-form output of the latest available biggest news in the world today. No need for a disclaimer, just the bullet-points.",
-        }
-    ],
-    # model="llama-3.3-70b-versatile",
-    model="compound-beta-mini",
-)
+# chat_completion1 = client.chat.completions.create(
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "Give me a bullet-form output of the latest available biggest news in the world today. No need for a disclaimer, just the bullet-points.",
+#         }
+#     ],
+#     # model="llama-3.3-70b-versatile",
+#     model="compound-beta-mini",
+# )
 
-chat_completion2 = client.chat.completions.create(
-    messages=[
-        {
-            "role": "user",
-            "content": "Give me a bullet-form output of the latest available biggest news in South Africa today. No need for a disclaimer, just the bullet-points.",
-        }
-    ],
-    model="llama-3.3-70b-versatile",
-)
+# chat_completion2 = client.chat.completions.create(
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "Give me a bullet-form output of the latest available biggest news in South Africa today. No need for a disclaimer, just the bullet-points.",
+#         }
+#     ],
+#     model="llama-3.3-70b-versatile",
+# )
 
 # print(chat_completion1.choices[0].message.content)
 
@@ -64,8 +127,8 @@ chat_completion2 = client.chat.completions.create(
 # print(response1.text)
 # print(response2.text)
 
-with open(check_path1,'w') as f:
-    f.write(str(chat_completion1.choices[0].message.content))
+# with open(check_path1,'w') as f:
+#     f.write(str(chat_completion1.choices[0].message.content))
 
-with open(check_path2,'w') as f:
-    f.write(str(chat_completion2.choices[0].message.content))
+# with open(check_path2,'w') as f:
+#     f.write(str(chat_completion2.choices[0].message.content))

@@ -52,10 +52,12 @@ def generate_streamlit_data():
         st.write("News:")
         # col1, col2 = st.columns(2)
 
-        with open(check_path1, encoding='utf-8') as f1:
+        # with open(check_path1, encoding='utf-8') as f1:
+        with open(check_path1) as f1:
             output1 = f1.read()
 
-        with open(check_path2, encoding='utf-8') as f2:
+        # with open(check_path2, encoding='utf-8') as f2:
+        with open(check_path2) as f2:
             output2 = f2.read() 
 
         lines1 = output1.splitlines()
@@ -65,10 +67,10 @@ def generate_streamlit_data():
         df2 = pd.DataFrame(lines2, columns=["SA News"])
 
         # with col1:
-        st.dataframe(df1, hide_index=True, row_height=80)
+        st.dataframe(df1, hide_index=True, row_height=100)
 
         # with col2:
-        st.dataframe(df2, hide_index=True, row_height=80)
+        st.dataframe(df2, hide_index=True, row_height=100)
 
     st.write("Weather:")
 
