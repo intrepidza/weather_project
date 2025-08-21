@@ -37,13 +37,13 @@ def generate_streamlit_data():
     cols = ['time','temperature_2m','rain','wind_direction_10m','wind_speed_10m','relative_humidity_2m','precipitation_probability','apparent_temperature','showers']
     df = df[cols]
 
-    fig = px.scatter(df, x="time", y="temperature_2m")
+    fig = px.scatter(df, x="time", y="temperature_2m", color="temperature_2m")
     st.plotly_chart(fig, use_container_width=True)
 
-    fig2 = px.scatter(df, x="time", y="apparent_temperature", color='orange')
+    fig2 = px.scatter(df, x="time", y="apparent_temperature")
     st.plotly_chart(fig2, use_container_width=True)
 
-    fig3 = px.scatter(df, x="time", y="precipitation_probability")
+    fig3 = px.bar(df, x="time", y="precipitation_probability")
     st.plotly_chart(fig3, use_container_width=True)
 
     fig4 = px.scatter(df, x="time", y="relative_humidity_2m")
