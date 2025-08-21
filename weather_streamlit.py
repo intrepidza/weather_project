@@ -40,11 +40,14 @@ def generate_streamlit_data():
     fig = px.scatter(df, x="time", y="temperature_2m")
     st.plotly_chart(fig, use_container_width=True)
 
-    fig2 = px.scatter(df, x="time", y="precipitation_probability")
+    fig2 = px.scatter(df, x="time", y="apparent_temperature")
     st.plotly_chart(fig2, use_container_width=True)
 
-    fig3 = px.scatter(df, x="time", y="relative_humidity_2m")
+    fig3 = px.scatter(df, x="time", y="precipitation_probability")
     st.plotly_chart(fig3, use_container_width=True)
+
+    fig4 = px.scatter(df, x="time", y="relative_humidity_2m")
+    st.plotly_chart(fig4, use_container_width=True)
 
 
 if __name__ == '__main__':
