@@ -1,4 +1,4 @@
-# import sys
+import sys
 from pathlib import Path
 # from google import genai
 # from groq import Groq
@@ -9,8 +9,7 @@ import json
 
 import requests
 
-api_key=os.environ.get("NEWS_API")
-
+load_dotenv()
 
 
 today = datetime.now().strftime('%Y_%m_%d')
@@ -24,52 +23,120 @@ check_path1 = root_path / file_name1
 check_path2 = root_path / file_name2
 
 
-url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
-response = requests.get(url)
 
-articles = response.json().get("articles", [])
+"""NewsData IO Testing:"""
+
+api_key=os.environ.get("NEWSDATA_IO_API")
+
+def generate_news_data():
+    
+    if check_path1.exists():
+        pass
+    else:
+        # US data:
+        url = f"https://newsdata.io/api/1/latest?apikey={api_key}&country=us"
+        response = requests.get(url)
+
+        with open('us_news_dump.txt','w') as f:
+            json.dump(response.json().get("results", []), f, indent=4)
+
+        with open(f'ai_output_{today}.txt','w') as f:
+            try:
+                for article in response.json().get("results", []):
+                    if any(cat in (article['category'] or []) for cat in ['sports']):
+                        continue
+
+                    if any(cat in (article['creator'] or []) for cat in ["Sponsored Post"]):
+                        continue
+
+                    else:
+                        f.write(f"* Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *\n")
+
+            except Exception as e:
+                print(f"Error! {e}")
+    
+    if check_path2.exists():
+        pass
+    else:
+        # SA data:
+        url2 = f"https://newsdata.io/api/1/latest?apikey={api_key}&country=za"
+        response2 = requests.get(url2)
+
+        with open('sa_news_dump.txt','w') as f:
+            json.dump(response2.json().get("results", []), f, indent=4)
+        
+
+        with open(f'ai_output2_{today}.txt','w') as f:
+            try:
+                for article in response2.json().get("results", []):
+                    # if 'sports' in article['category'] or 'lotto' in article['category']:
+                    
+                    if any(cat in (article['category'] or []) for cat in ['sports']):
+                        continue
+
+                    if any(cat in (article['creator'] or []) for cat in ["Sponsored Post"]):
+                        continue
+
+                    else:
+                        f.write(f"* Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *\n")
+
+            except Exception as e:
+                print(f"Error! {e}")
+
+"""NewsData IO Testing:"""
+
+generate_news_data()
+
+# response.json()
+
+"""News API Testing
+
+# api_key=os.environ.get("NEWS_API")
+
+# url = f"https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}"
+# response = requests.get(url)
+
+# articles = response.json().get("articles", [])
 
 # test = json.loads(response.request)
 
-url2 = f"https://newsapi.org/v2/top-headlines?country=za&apiKey={api_key}"
-response2 = requests.get(url2)
+# url2 = f"https://newsapi.org/v2/top-headlines?country=za&apiKey={api_key}"
+# response2 = requests.get(url2)
 
-articles2 = response2.json().get("articles", [])
-
+# articles2 = response2.json().get("articles", [])
 
 # with open('news_dump.txt', 'w') as f:
 #     # f.write(articles)
 #     json.dump(articles, f, indent=4)
 
-# print(articles)
+
 
 # US data:
-with open('ai_output_2025_08_21.txt','w') as f:
-    try:
-        for article in articles:
-            # f.write(f"**{article['title']}**\n")
-            # f.write(f"{article['description']}\n")
-            # # f.write(f"[Read more]({article['url']})\n")
-            # f.write(f"Published: {article['publishedAt']}\n")
-            f.write(f"* Title: {article['title']}** - Article:{article['description']} - Published: {article['publishedAt']}\n")
+# with open('ai_output_2025_08_21.txt','w') as f:
+#     try:
+#         for article in articles:
+#             # f.write(f"**{article['title']}**\n")
+#             # f.write(f"{article['description']}\n")
+#             # # f.write(f"[Read more]({article['url']})\n")
+#             # f.write(f"Published: {article['publishedAt']}\n")
+#             f.write(f"* Title: {article['title']}** - Article:{article['description']} - Published: {article['publishedAt']}\n")
 
-    except Exception as e:
-        print("Error! {e}")
+#     except Exception as e:
+#         print("Error! {e}")
 
-# ZA data:
+# # ZA data:
 
-with open('ai_output2_2025_08_21.txt','w') as f:
-    try:
-        for article in articles2:
-            # f.write(f"**{article['title']}**\n")
-            # f.write(f"{article['description']}\n")
-            # # f.write(f"[Read more]({article['url']})\n")
-            # f.write(f"Published: {article['publishedAt']}\n")
-            f.write(f"* Title: {article['title']}** - Article:{article['description']} - Published: {article['publishedAt']}\n")
+# with open('ai_output2_2025_08_21.txt','w') as f:
+#     try:
+#         for article in articles2:
+#             # f.write(f"**{article['title']}**\n")
+#             # f.write(f"{article['description']}\n")
+#             # # f.write(f"[Read more]({article['url']})\n")
+#             # f.write(f"Published: {article['publishedAt']}\n")
+#             f.write(f"* Title: {article['title']}** - Article:{article['description']} - Published: {article['publishedAt']}\n")
 
-    except Exception as e:
-        print("Error! {e}")
-
+#     except Exception as e:
+#         print("Error! {e}")
 
 # for article in articles:
 #     print(article)
@@ -78,9 +145,11 @@ with open('ai_output2_2025_08_21.txt','w') as f:
     # st.write(f"[Read more]({article['url']})")
     # st.write(f"Published: {article['publishedAt']}")
 
-# if check_path1.exists() or check_path2.exists():
-#     sys.exit()
+News API Testing"""
 
+
+
+"""Gemini API testing 
 # The client gets the API key from the environment variable `GEMINI_API_KEY`.
 # client = genai.Client()
 
@@ -93,7 +162,9 @@ with open('ai_output2_2025_08_21.txt','w') as f:
 #     model="gemini-2.5-flash", 
 #     contents="Give me a bullet-form output of the latest available biggest news in South Africa today. No need for a disclaimer, just the bullet-points."
 # )
+"""
 
+"""Groq API testing
 # client = Groq(
 #     api_key=os.environ.get("GROQ_API_KEY"),
 # )
@@ -132,3 +203,4 @@ with open('ai_output2_2025_08_21.txt','w') as f:
 
 # with open(check_path2,'w') as f:
 #     f.write(str(chat_completion2.choices[0].message.content))
+"""

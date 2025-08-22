@@ -11,3 +11,5 @@ weather_log.log
 temp.py
 .env
 .streamlit/
+sa_news_dump.txt
+us_news_dump.txt

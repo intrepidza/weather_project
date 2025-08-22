@@ -2,6 +2,8 @@ import logging
 
 debug_mode = True
 
+ANSI_ESCAPE_COLORS = {'RED': '\033[0;31m', 'GREEN': '\033[0;32m', 'ORANGE': '\033[0;32m'}
+
 def create_logger(logger_name):
     logging.basicConfig(
         level=logging.DEBUG,
