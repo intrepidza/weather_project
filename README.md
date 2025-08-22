@@ -12,6 +12,5 @@ See requirements.txt file for packages.
 https://intrepidza-weather-project-weather-streamlit-bci1hz.streamlit.app
 
 # TODO
-- Load data into SQL table
-- Add e-mail event
 - Add event for drastic number changes
+- Add e-mail event

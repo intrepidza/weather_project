@@ -41,10 +41,18 @@ def load_into_supabase():
 
     # data = [{"test_int": 456, "test_text": "def", "user_id": user.user.id},{"test_int": 789, "test_text": "ghi", "user_id": user.user.id}]
 
+    print_and_log("Removing old data.")
+    try:
+        response = connect.rpc("truncate_test").execute()
+    except Exception as e:
+        print_and_log(f"Error when attempting to remove old data {e}")
+    
+    # print(response)
+
     try:
         response = connect.table("test").insert(data).execute()
     except Exception as e:
-        print(e)
+        print_and_log(f"Error when attempting to insert data {e}")
 
     connect.auth.sign_out()
 

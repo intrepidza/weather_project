@@ -9,6 +9,9 @@ import json
 
 import requests
 
+from weather_tools import deco_print_and_log, print_and_log
+
+
 load_dotenv()
 
 
@@ -23,11 +26,11 @@ check_path1 = root_path / file_name1
 check_path2 = root_path / file_name2
 
 
-
 """NewsData IO Testing:"""
 
 api_key=os.environ.get("NEWSDATA_IO_API")
 
+@deco_print_and_log("Generating news data")
 def generate_news_data():
     
     if check_path1.exists():
@@ -50,10 +53,10 @@ def generate_news_data():
                         continue
 
                     else:
-                        f.write(f"* Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *\n")
+                        f.write(f"* Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} * - * Link: {article['link']} *\n")
 
             except Exception as e:
-                print(f"Error! {e}")
+                print_and_log(f"Error! {e}")
     
     if check_path2.exists():
         pass
@@ -78,14 +81,14 @@ def generate_news_data():
                         continue
 
                     else:
-                        f.write(f"* Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *\n")
+                        f.write(f"* Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} * - * Link: {article['link']} *\n")
 
             except Exception as e:
-                print(f"Error! {e}")
+                print_and_log(f"Error! {e}")
 
 """NewsData IO Testing:"""
 
-generate_news_data()
+# generate_news_data()
 
 # response.json()
 
