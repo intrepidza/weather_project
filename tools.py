@@ -1,5 +1,6 @@
 import logging
 
+
 debug_mode = True
 
 ANSI_ESCAPE_COLORS = {'RED': '\033[0;31m', 'GREEN': '\033[0;32m', 'ORANGE': '\033[0;32m'}
@@ -9,7 +10,7 @@ def create_logger(logger_name):
         level=logging.DEBUG,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S',
-        filename='weather_log.log',
+        filename='app_log.log',
         filemode='a'
         )
 
