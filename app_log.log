@@ -7884,3 +7884,330 @@
 2025-08-24 08:38:16 - httpcore.http2 - DEBUG - receive_response_body.complete
 2025-08-24 08:38:16 - httpcore.http2 - DEBUG - response_closed.started stream_id=3
 2025-08-24 08:38:16 - httpcore.http2 - DEBUG - response_closed.complete
+2025-08-24 08:38:25 - weather_app - INFO - Connecting to Supabase - Begin
+2025-08-24 08:38:25 - httpcore.connection - DEBUG - connect_tcp.started host='bzhokzcswgencuvezisw.supabase.co' port=443 local_address=None timeout=5.0 socket_options=None
+2025-08-24 08:38:26 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020012914710>
+2025-08-24 08:38:26 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000020012AB3920> server_hostname='bzhokzcswgencuvezisw.supabase.co' timeout=5.0
+2025-08-24 08:38:26 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020012BA1AD0>
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_connection_init.started request=<Request [b'POST']>
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_connection_init.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_headers.started request=<Request [b'POST']> stream_id=1
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':method', b'POST') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 3 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':authority', b'bzhokzcswgencuvezisw.supabase.co') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 1 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 23 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':scheme', b'https') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 7 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':path', b'/auth/v1/token?grant_type=password') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 4 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 25 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept', b'*/*') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 19 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 3 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 16 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'user-agent', b'python-httpx/0.28.1') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 58 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 14 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'x-client-info', b'supabase-py/2.18.1') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 10 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 13 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'apikey', b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6aG9remNzd2dlbmN1dmV6aXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NTkxMzcsImV4cCI6MjA3MTMzNTEzN30.s9_Xh8OsR9b-GOxmSvXoNz0oow-8Ej6lbAzrN9NW_Fc') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 5 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 166 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'authorization', b'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6aG9remNzd2dlbmN1dmV6aXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NTkxMzcsImV4cCI6MjA3MTMzNTEzN30.s9_Xh8OsR9b-GOxmSvXoNz0oow-8Ej6lbAzrN9NW_Fc') to the header table, sensitive:True, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 23 with 4 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 171 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'x-supabase-api-version', b'2024-01-01') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 16 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 7 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'content-type', b'application/json;charset=UTF-8') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 31 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 22 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'content-length', b'113') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 28 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 2 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoded header block to b'\x83A\x97\x8f\xdc\xe7\xeb\xec\x88\xf11j%\xbd\xcb\xec\xc8\xf0\xba-\xacq\x8d\x05\\\x87\x87D\x99`v\xa6v;\x85\x84\x9f\xa9j\xff&\xb0u&$\xfa\xac\xb0V4#\xc1\xec\x93S\x83\xf9c\xe7\x90z\x8e\xaf\xd2g=KN\x94\xd7\xe5\x80.\'\x97\x0f@\x8a\xf2\xb1(1jJ\xc6\xaaS\xff\x8dE\xb5\x8e1\xa0\xabW\xe9\x81.\x17\x97\x0f@\x85\x1df\xea__\xff\'/\xac\xb3\xc7\x88\x86\xd4l\xb98{\xc8\x1d&\xc8\x8c\x95ml\x97\xb29\x93\xad\x7f\x9coe}r\xfa\xcbY\x19\xd0mF\xcb\xeeO\xcb\xb3\xf3\xa7\x0f\xbf\xdd\xd9\x11\x92\xac\xb4~\x9b#\x99)\xca\xe0\xf1?ai\xd3\xeeAIDt\xe9\x0c\x94\xf1p\x7f\x9aY\xc8o\x06%/\xa3\xf7vG2S\x86\xd8\xc4\xd1\xb3\xde\xcb_?\xcd\x86\xd5\xd3\x03:w\xf0gN\xfe\xbet{"2S\xc5\xa2^\xc8\xe6\x8e\x90\xb3\xa3~\x8fzw\xe0\xf7\xa5\x90.\x87\xe2\xfc\x9d\xedH\xda\xfckb\xd5\xe6\x9d\xdd\xff\x0f\xa7\xd8\x0e\x7f\x0b=\x83\xa3\x94G\x0f\xbb4\xbf\xa7\x94XI\x1f\x08\xff,\xbaQ\xd8[\x14/\xac\xb3\xc7\x88\x86\xd4l\xb98{\xc8\x1d&\xc8\x8c\x95ml\x97\xb29\x93\xad\x7f\x9coe}r\xfa\xcbY\x19\xd0mF\xcb\xeeO\xcb\xb3\xf3\xa7\x0f\xbf\xdd\xd9\x11\x92\xac\xb4~\x9b#\x99)\xca\xe0\xf1?ai\xd3\xeeAIDt\xe9\x0c\x94\xf1p\x7f\x9aY\xc8o\x06%/\xa3\xf7vG2S\x86\xd8\xc4\xd1\xb3\xde\xcb_?\xcd\x86\xd5\xd3\x03:w\xf0gN\xfe\xbet{"2S\xc5\xa2^\xc8\xe6\x8e\x90\xb3\xa3~\x8fzw\xe0\xf7\xa5\x90.\x87\xe2\xfc\x9d\xedH\xda\xfckb\xd5\xe6\x9d\xdd\xff\x0f\xa7\xd8\x0e\x7f\x0b=\x83\xa3\x94G\x0f\xbb4\xbf\xa7\x94XI@\x90\xf2\xb2-\xacq\x8d\x05Xu\x99n\xe5\xb1\x06=_\x87\x10\x04\xd2\xc0\n\xc0\x0f_\x96\x1du\xd0b\r&=LtA\xea\xfb$\xe3\xb1\x05L\x1c7\xe1Y\xef\\\x82\x08Y'
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_headers.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_body.started request=<Request [b'POST']> stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_body.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_headers.started request=<Request [b'POST']> stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_remote_settings.started
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_remote_settings.complete return_value=<RemoteSettingsChanged changed_settings:{ChangedSetting(setting=3, original_value=None, new_value=100), ChangedSetting(setting=4, original_value=65535, new_value=65536), ChangedSetting(setting=5, original_value=16384, new_value=16777215)}>
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoding b'?\xe1\x1f\x88a\x96\xddm_J\t\xa5!\xb6e\x04\x016\xa0\x1c\xb8\xcb\xd7\x04\xe2\x98\xb4o_\x8b\x1du\xd0b\r&=LtA\xea@\x85$\xabX?_\x8f}\xd6\x81#\xc4\x11\x1f\x01@\xe8\x08\xb5\xed{\xff@\x8a$\xab\x10d\x9c\xab!#M\xa8\x86\xbf\xcfL:2^Z\x83\x9b\xd9\xabx\xa0\xa4~V\x1c\xc5\x81\x90\xb6\xcb\x80\x00>\xd45D\xa2\xd9\x0b\xba\xd8\xef\x9e\x91\x9a\xa4}\xa9]\x85\xa0\xe3\x93{\x91\xd5a\xa65_JBB\x16\xb4\xad\x82\xa2\x1eCU7@\x8dDkL4\x97\xc0\xfd-\xdc\xb6 \xc7\xab\x011@\x8aDkWa\xfa\x14\x89Z\xc2\xcb\x8f\x8f\xdc\xe7\xeb\xec\x88\xf11j%\xbd\xcb\xec\xc8\xf1@\x8aDkX^\xd6\x95\tX\xd2\x7f\x9a\x00_zA\x90\x8bF\xd9$Y\xd9\x1e\x8dg\x86WVq\xd2\x14R>@\xb8\xd4\x7f@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x8f\xf2\xb1j\xee\x7fK\r)-5\xa5b\x1e\xda\x93\x011@\x95\xf2\xb1j\xee\x7fK[Z\x13aGJ\xc8-\x9d\xccB\xac\x93R_\x82\x08\x1dw\xffX\x8a"K\x14t\xc1\x93?l\x85k\xddr\xf6\xe1\xe7\x04,\x87\x96>9\x03O\xef\xef\x8eZ\x80\xddm7\x97\x85p\xe2\xcb\xdf\xcf\x9d\x99\x16\x0b\xad\xb8\x00\xba\xd8\x1cX+\x81p\xae\x15\xae\xaf\x9e\xc3\xb7\x86\xdcw\xabM\xbe\xdc\x04.\xf3\xa7\x15\xaf\xc5^^\xefK\xc2\xdc;\x89\x93`u\x0bh\xe5\xfd\x8d=\xf6k\xaa^c\xf7\x9d\x0fN]W\xf4]\x9d\xc3u\xc4\x7f8\xa2\x14._\xf2\xee\x9e\x7f\xbdO\xba\xc0{\xf1gJ\xb1\xf8\xf5\xab/\x7f\\\xef\xd1\xe3n\\x\x07\x83\xedJ\xc6\x99\xe0c\xedB\xf9\xac\xd6\x15\x10n\xb6\xaf\xa5\x04\xd2\xd0\xdb2\xc2m@;p\x0f\\\x13\x8ab\xd1\xbf\xedI\x0fH\xcdT\x0b\xa2\xda\xc7\x18\xd0U\xc8\x7f\xb51\xa55\xea\xaa\x8f_jn)-\xb0\xbfjn\x1d%\xdcd\x96\r\'\xa8\xbfv\x87%\x07\xb6Ih\x1d\x85@\x85\x1d\tY\x1d\xc9\x90\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x81\xe7\x1a\x00?'
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 4096, consumed 3 bytes
+2025-08-24 08:38:26 - hpack.table - DEBUG - Resizing header table to 4096 from 4096
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'date', b'Sun, 24 Aug 2025 06:38:26 GMT'), total consumed 24 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'content-type', b'application/json'), total consumed 13 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'cf-ray', b'9740d8c2c90e070c-CPT'), total consumed 23 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'cf-cache-status', b'DYNAMIC'), total consumed 19 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 26, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'content-encoding', b'gzip'), total consumed 5 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 56, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 32, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), total consumed 34 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 17, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'vary', b'Origin, Accept-Encoding'), total consumed 19 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'sb-gateway-version', <memory at 0x0000020012B12EC0>), total consumed 17 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'sb-project-ref', b'bzhokzcswgencuvezisw'), total consumed 28 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 26, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'sb-request-id', b'0198dacc-b5cd-7d8b-8ae7-67ce2d9c164b'), total consumed 39 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'x-envoy-attempt-count', <memory at 0x0000020012B13040>), total consumed 19 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 21, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 2, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'x-envoy-upstream-service-time', b'107'), total consumed 26 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 55, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 215, consumed 2 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'set-cookie', b'__cf_bm=ILqIe4zpfqUxEA31WHVI1mZZwWO05p45JUpAGJvxxQI-1756017506-1.0.1.1-B.Lro5FuHCptuz60A7YmGu9_pJv8fUuFScIQ1O2RafZbtvQPnfYazLs8heODMBh6ikGoxG_2A6Dx7NYZkoSr0zwrjnHwyOJvyYDlwRJHEaE; path=/; expires=Sun, 24-Aug-25 07:08:26 GMT; domain=.supabase.co; HttpOnly; Secure; SameSite=None'), total consumed 218 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 7, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'server', b'cloudflare'), total consumed 9 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=86400'), total consumed 24 bytes, indexed True
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_headers.complete return_value=(200, [(b'date', b'Sun, 24 Aug 2025 06:38:26 GMT'), (b'content-type', b'application/json'), (b'cf-ray', b'9740d8c2c90e070c-CPT'), (b'cf-cache-status', b'DYNAMIC'), (b'content-encoding', b'gzip'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'vary', b'Origin, Accept-Encoding'), (b'sb-gateway-version', b'1'), (b'sb-project-ref', b'bzhokzcswgencuvezisw'), (b'sb-request-id', b'0198dacc-b5cd-7d8b-8ae7-67ce2d9c164b'), (b'x-content-type-options', b'nosniff'), (b'x-envoy-attempt-count', b'1'), (b'x-envoy-upstream-service-time', b'107'), (b'set-cookie', b'__cf_bm=ILqIe4zpfqUxEA31WHVI1mZZwWO05p45JUpAGJvxxQI-1756017506-1.0.1.1-B.Lro5FuHCptuz60A7YmGu9_pJv8fUuFScIQ1O2RafZbtvQPnfYazLs8heODMBh6ikGoxG_2A6Dx7NYZkoSr0zwrjnHwyOJvyYDlwRJHEaE; path=/; expires=Sun, 24-Aug-25 07:08:26 GMT; domain=.supabase.co; HttpOnly; Secure; SameSite=None'), (b'server', b'cloudflare'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-24 08:38:26 - httpx - INFO - HTTP Request: POST https://bzhokzcswgencuvezisw.supabase.co/auth/v1/token?grant_type=password "HTTP/2 200 OK"
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_body.started request=<Request [b'POST']> stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_body.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - response_closed.started stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - response_closed.complete
+2025-08-24 08:38:26 - weather_app - INFO - Connecting to Supabase - End
+2025-08-24 08:38:26 - httpcore.connection - DEBUG - connect_tcp.started host='bzhokzcswgencuvezisw.supabase.co' port=443 local_address=None timeout=120 socket_options=None
+2025-08-24 08:38:26 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020012A58350>
+2025-08-24 08:38:26 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000020012BB0050> server_hostname='bzhokzcswgencuvezisw.supabase.co' timeout=120
+2025-08-24 08:38:26 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000020012BB6E10>
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_connection_init.started request=<Request [b'GET']>
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_connection_init.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_headers.started request=<Request [b'GET']> stream_id=1
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':method', b'GET') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 2 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':authority', b'bzhokzcswgencuvezisw.supabase.co') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 1 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 23 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':scheme', b'https') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 7 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':path', b'/rest/v1/weather?select=%2A') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 4 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 20 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept', b'*/*') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 19 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 3 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 16 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'user-agent', b'python-httpx/0.28.1') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 58 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 14 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'x-client-info', b'supabase-py/2.18.1') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 10 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 13 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'apikey', b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6aG9remNzd2dlbmN1dmV6aXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NTkxMzcsImV4cCI6MjA3MTMzNTEzN30.s9_Xh8OsR9b-GOxmSvXoNz0oow-8Ej6lbAzrN9NW_Fc') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 5 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 166 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'authorization', b'Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6InV2TTdlc2hDUXZBcG9BeWMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2J6aG9remNzd2dlbmN1dmV6aXN3LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiIyZGIwNjk4Mi1hNTU5LTQwMzQtYjcwOS1lYjhmMGM0Y2VlZDciLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzU2MDIxMTA1LCJpYXQiOjE3NTYwMTc1MDUsImVtYWlsIjoiaW50cmVwaWR6YXJAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZX0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3NTYwMTc1MDV9XSwic2Vzc2lvbl9pZCI6IjBkYjM0ZGRmLTJhMTYtNGQ2Ni05YjViLTFiZGJlZDIwNWM3OCIsImlzX2Fub255bW91cyI6ZmFsc2V9.dxFLt5SepAIVxwKwJNRaj7d7pkyymxzgvRpWXp6RMKk') to the header table, sensitive:True, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 23 with 4 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 590 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept-profile', b'public') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 10 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 5 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'content-profile', b'public') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 11 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 5 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoded header block to b'\x82A\x97\x8f\xdc\xe7\xeb\xec\x88\xf11j%\xbd\xcb\xec\xc8\xf0\xba-\xacq\x8d\x05\\\x87\x87D\x94b\xc2\xa1,w\x0b\x1e\n4\xce[?\xc4\x16\x82\x910*(\x7fS\x83\xf9c\xe7\x90z\x8e\xaf\xd2g=KN\x94\xd7\xe5\x80.\'\x97\x0f@\x8a\xf2\xb1(1jJ\xc6\xaaS\xff\x8dE\xb5\x8e1\xa0\xabW\xe9\x81.\x17\x97\x0f@\x85\x1df\xea__\xff\'/\xac\xb3\xc7\x88\x86\xd4l\xb98{\xc8\x1d&\xc8\x8c\x95ml\x97\xb29\x93\xad\x7f\x9coe}r\xfa\xcbY\x19\xd0mF\xcb\xeeO\xcb\xb3\xf3\xa7\x0f\xbf\xdd\xd9\x11\x92\xac\xb4~\x9b#\x99)\xca\xe0\xf1?ai\xd3\xeeAIDt\xe9\x0c\x94\xf1p\x7f\x9aY\xc8o\x06%/\xa3\xf7vG2S\x86\xd8\xc4\xd1\xb3\xde\xcb_?\xcd\x86\xd5\xd3\x03:w\xf0gN\xfe\xbet{"2S\xc5\xa2^\xc8\xe6\x8e\x90\xb3\xa3~\x8fzw\xe0\xf7\xa5\x90.\x87\xe2\xfc\x9d\xedH\xda\xfckb\xd5\xe6\x9d\xdd\xff\x0f\xa7\xd8\x0e\x7f\x0b=\x83\xa3\x94G\x0f\xbb4\xbf\xa7\x94XI\x1f\x08\xff\xcf\x03\xbaQ\xd8[\x14/\xac\xb3\xc7\x88\x86\xd4l\xb98{\xc8\x1d&\xc8\x8c\x94\xa6\xbf\xdb\xd9\x1c\xc9W\x11o\xdf%\x04\x14\xf7\xf8~~\xdd&\'\xee\x97\x96\x83g\xbd\x94\x05\xfc\x84\xda\x8d\x977\x10\xec4\xbb\x17/\xac\xb5\x91\x9d\x06\xd4l\xa7\x93\x1e\xdf\x04\xf6~\xf9\xc5\x95\xc1\xe2~\xc2\xd3\xa7\xdc\x82\x92\x88\xe9\xd2\x19)\xe2\xe0\xff4\xb3\x9e\xad!&,&\xe7\xf9\xa6\x8c\xf4\xe9\xef\x9cXC&)\xbb\xc9\xd3\x01\xb3\xde\xcb\xeeNY\r\xa8\xd9=~\xe2\xc9\xe3ON\xadh0g\xd3\xbf\x83y\xf7\xec\xf1\xa3\xde\xc4\xf3\xe8O\x1a\xb7\x06\x8e}\'\xa7F-\x00\xe6.4~\xdf!\xb3\xde\xcb<\x9c\xb6\x1bQ\xb2\xcf\'\xe6\xd3\xfe\xf2l\x03\xe5\xa6y1q\xeb\x90\xde\r\xfb\xf9?\x8c\x9d\x0f\xe7O\xbe\x02\xd1\x7f\'\x9d\x1b\xe1\x0e{\xd9k\xe7\xf9\xb0\xda\xba`gN\xfe~4o t_\xe0\x8c\x94\xf1O>T#\'C\x98|\x9b\x01)\xe3\xe0|\xb6\xb9\xcf\xf3,?\xa2\x0c\xe3\xe5\xe2\xdeb}9\r\xe0\xc4\xc5?x\xe9\xe0mF\xc8l\xf7\xb2\xceLwe\x8f\x97\x10s\xe5\xb6y1`6\xaa\x90bc\xcb\xdeJh\xeb\xfb\xf9\x90\xda\x8d\x96\x88\xf9a\xae;\xd9\x11\x92\xab\xbe\xa3g\xf6\xbf\xdc\\}\x13\xd6G9z\xcbD|\xb0\xd7\x1d\xec\xb2K\xbb\xc1\xa4\xfc\xd3A(}?\xbf\x9bg\xfd\xc5\x84\x1c\xf7dp\xbe\xb2\xd1\x1f,5\xc7\x85\xf1~\xfee\xaf\xf6\x9a(\xfd\xbd\x91\xc91\xe5\x0f\xef\xe0\x11\x92\xac\xbd\xe3\xc5\xc0\xda\x8d\x96y?6\x9f\xf7\x93`\x1f-3\xc9\x8b\x8f\\\x86\xf0n|\xb0\xa3\'C\x9b\x9f,(\xd1\xbb"2S\x85$6G92\x83G\xcb\x88\x07\x89\xfe\xb9:\x1c\xc4\xc5\x87\xd9\x19\x93\xb9)\xd8l\xf7\xb2\x80|\x83A\x19\xdb<\x7f\x90\x9bWL\x0c\xe9\xdf\xcf\xc6\x8d\xe4\x0e\x8b\xfc_\xfc\xdd\xe0\xc4\x17\x1fd\x15\x1d\xe3\xa1\xfa\xffods\'K\xbdy\xf4\xd0\x0f\xdc[i\xcf\xbf,\xfa7\xf3N\x9c[\x05\xa4\xc0o\x9fN&\xcf\xbf\t\xbfqe\xa3\xf6\xfeO\x1ayhgU\xec\x88\xc9M\x1e\xff\x05\x86\xd8\xc4\xdbq\xf2|$\xf5\x91\xcf\xdap\xa0\x82\xe2\xfa\xf2y\xc3\x9d-\xee-p\xe4\xe3\xe7\xc6o\x19t\xed\x1fGdv\xbe\xbe\xbdS\xe7\xdc\xdd\xf6\xd7\xcb\xf2\xb76\xe8\xcd\xd7@\x8a\x19\x08Z\xd2\xb5v\x1eSP_\x85\xae\xd8\xe81?@\x8b!\xeaIjJ\xd5\xd8yMA\x7f\x85\xae\xd8\xe81?'
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_headers.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_body.started request=<Request [b'GET']> stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_body.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_headers.started request=<Request [b'GET']> stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_remote_settings.started
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_remote_settings.complete return_value=<RemoteSettingsChanged changed_settings:{ChangedSetting(setting=3, original_value=None, new_value=100), ChangedSetting(setting=4, original_value=65535, new_value=65536), ChangedSetting(setting=5, original_value=16384, new_value=16777215)}>
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoding b'?\xe1\x1f\x88a\x96\xddm_J\t\xa5!\xb6e\x04\x016\xa0\x1c\xb8\xcb\xd7\x04\xe2\x98\xb4o_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{^\x86\x02\xc1q\xd6>\x7f@\x85$\xabX?_\x8f}\xd6\x81#\xc4p\x12>\xd4\xa0i\xd5\xafk\xdf@\x8a$\xab\x10d\x9c\xab!#M\xa8\x86\xbf\xcfL:2^Z\x83\x9b\xd9\xab]\x8ec\xc1F\x99\xcbg\xf8\x82\xd0R&\x05E\x0fx\xa0\xa4~V\x1c\xc5\x81\x90\xb6\xcb\x80\x00>\xd45D\xa2\xd9\x0b\xba\xd8\xef\x9e\x91\x9a\xa4}\xa9]\x85\xa0\xe3\x93{\x8b\x84\x84-i[\x05D<\x86\xaao@\x8b!\xeaIjJ\xd5\xd8yMA\x7f\x85\xae\xd8\xe81?@\x8dDkL4\x97\xc0\xfd-\xdc\xb6 \xc7\xab\x011@\x8aDkWa\xfa\x14\x89Z\xc2\xcb\x8f\x8f\xdc\xe7\xeb\xec\x88\xf11j%\xbd\xcb\xec\xc8\xf1@\x8aDkX^\xd6\x95\tX\xd2\x7f\x9a\x00_zA\x90\x8bF\xe9#Y\xd9K"\xcf;#\x8b\x12WHF\xdcu\x92:\xf7@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x8f\xf2\xb1j\xee\x7fK\r)-5\xa5b\x1e\xda\x93\x011@\x95\xf2\xb1j\xee\x7fK[Z\x13aGJ\xc8-\x9d\xccB\xac\x93R_\x0245w\xffV\x8a"K\x14t\xc0\xdc\x9b\x1e\xb7\xf7gp\xe4\xeb\xa7\x9d\xdc\x8fy97\x17x;\xe2\x17\x00\x8d\x17\x9aH}\xe3\xcf0\x9bO\x08V\x0b\xad\xb8\x00\xba\xd8\x1cX+\x81p\xae\x15\xa7\x1c=\xb9Q\xe7x\xe2\xef\xaf\x0e\xebr\x99\xcb\xb9r\xe8u=\x08\xbd\x9c\xe5\xf6\xfd"\x9b\x02\xfd=\xf1w\xac\xb7c\x9f\x9bq\xef\x03\xa6\x9b3\x99mE5/\x10n\xee\xe3\xb3\xbe~\r\xbc4e\xc5\xa6\x86qe\xf0\xf2\xees=T\xe3\xab\x16\xdd\xf7\xfc~p\xfd\x1e\xaf+\xfa\xccO\xb5+\x1ag\x81\x8f\xb5\x0b\xe6\xb3XTA\xba\xda\xbe\x94\x13KCl\xcb\t\xb5\x00\xed\xc0=pN)\x8bF\xff\xb5$=#5P.\x8bk\x1ccAW!\xfe\xd4\xc6\x94\xd7\xaa\xaa=}\xa9\xb8\xa4\xb6\xc2\xfd\xa9\xb8t\x97q\x92X4\x9e\xa2\xffv\x87%\x07\xb6Ih\x1d\x85@\x85\x1d\tY\x1d\xc9\x90\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x81\xe7\x1a\x00?'
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 4096, consumed 3 bytes
+2025-08-24 08:38:26 - hpack.table - DEBUG - Resizing header table to 4096 from 4096
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 33, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'date', b'Sun, 24 Aug 2025 06:38:26 GMT'), total consumed 24 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 31, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 22, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 30, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'content-range', b'0-167/*'), total consumed 8 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'cf-ray', b'9740d8c60d94f047-CPT'), total consumed 23 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 6, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'cf-cache-status', b'DYNAMIC'), total consumed 19 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 26, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 3, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'content-encoding', b'gzip'), total consumed 5 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 29, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 14, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'content-location', b'/weather?select=%2A'), total consumed 16 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 56, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 32, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), total consumed 34 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 59, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'vary', b'Accept-Encoding'), total consumed 13 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 11, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'content-profile', b'public'), total consumed 19 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 13, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'sb-gateway-version', <memory at 0x0000020012B13340>), total consumed 17 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'sb-project-ref', b'bzhokzcswgencuvezisw'), total consumed 28 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 26, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'sb-request-id', b'0198dacc-b7cb-7fed-87d6-cf7cc5673c78'), total consumed 39 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 1, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'x-envoy-attempt-count', <memory at 0x0000020012B13400>), total consumed 19 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 21, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 2, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'x-envoy-upstream-service-time', <memory at 0x0000020012B13280>), total consumed 26 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 55, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 213, consumed 2 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'set-cookie', b'__cf_bm=5dQ8uZQv1IkNYBI8xocSeT0vG2U1asC4t1zHLg25tUA-1756017506-1.0.1.1-haAqWlxTa_vPFSuJi6BJJM7tjc.rYfz9m2gE.jzV7kfBbhY5bT07igK6Jusmn._1BSVQvLU58asJGNl3GJw8.6YonmHnGRTDwXUZaOx.yKc; path=/; expires=Sun, 24-Aug-25 07:08:26 GMT; domain=.supabase.co; HttpOnly; Secure; SameSite=None'), total consumed 216 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 54, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 7, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'server', b'cloudflare'), total consumed 9 bytes, indexed True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded 16, consumed 1 bytes
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=86400'), total consumed 24 bytes, indexed True
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_headers.complete return_value=(200, [(b'date', b'Sun, 24 Aug 2025 06:38:26 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-range', b'0-167/*'), (b'cf-ray', b'9740d8c60d94f047-CPT'), (b'cf-cache-status', b'DYNAMIC'), (b'content-encoding', b'gzip'), (b'content-location', b'/weather?select=%2A'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'vary', b'Accept-Encoding'), (b'content-profile', b'public'), (b'sb-gateway-version', b'1'), (b'sb-project-ref', b'bzhokzcswgencuvezisw'), (b'sb-request-id', b'0198dacc-b7cb-7fed-87d6-cf7cc5673c78'), (b'x-content-type-options', b'nosniff'), (b'x-envoy-attempt-count', b'1'), (b'x-envoy-upstream-service-time', b'45'), (b'set-cookie', b'__cf_bm=5dQ8uZQv1IkNYBI8xocSeT0vG2U1asC4t1zHLg25tUA-1756017506-1.0.1.1-haAqWlxTa_vPFSuJi6BJJM7tjc.rYfz9m2gE.jzV7kfBbhY5bT07igK6Jusmn._1BSVQvLU58asJGNl3GJw8.6YonmHnGRTDwXUZaOx.yKc; path=/; expires=Sun, 24-Aug-25 07:08:26 GMT; domain=.supabase.co; HttpOnly; Secure; SameSite=None'), (b'server', b'cloudflare'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-24 08:38:26 - httpx - INFO - HTTP Request: GET https://bzhokzcswgencuvezisw.supabase.co/rest/v1/weather?select=%2A "HTTP/2 200 OK"
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_body.started request=<Request [b'GET']> stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_body.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - response_closed.started stream_id=1
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - response_closed.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_headers.started request=<Request [b'GET']> stream_id=3
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':method', b'GET') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 2 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':authority', b'bzhokzcswgencuvezisw.supabase.co') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 69 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':scheme', b'https') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 7 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b':path', b'/rest/v1/news?select=%2A') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 4 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 18 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept', b'*/*') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 68 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept-encoding', b'gzip, deflate') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 16 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'user-agent', b'python-httpx/0.28.1') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 67 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'x-client-info', b'supabase-py/2.18.1') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 66 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'apikey', b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6aG9remNzd2dlbmN1dmV6aXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NTkxMzcsImV4cCI6MjA3MTMzNTEzN30.s9_Xh8OsR9b-GOxmSvXoNz0oow-8Ej6lbAzrN9NW_Fc') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 65 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'authorization', b'Bearer eyJhbGciOiJIUzI1NiIsImtpZCI6InV2TTdlc2hDUXZBcG9BeWMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2J6aG9remNzd2dlbmN1dmV6aXN3LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiIyZGIwNjk4Mi1hNTU5LTQwMzQtYjcwOS1lYjhmMGM0Y2VlZDciLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzU2MDIxMTA1LCJpYXQiOjE3NTYwMTc1MDUsImVtYWlsIjoiaW50cmVwaWR6YXJAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZX0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3NTYwMTc1MDV9XSwic2Vzc2lvbl9pZCI6IjBkYjM0ZGRmLTJhMTYtNGQ2Ni05YjViLTFiZGJlZDIwNWM3OCIsImlzX2Fub255bW91cyI6ZmFsc2V9.dxFLt5SepAIVxwKwJNRaj7d7pkyymxzgvRpWXp6RMKk') to the header table, sensitive:True, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 23 with 4 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 590 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'accept-profile', b'public') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 64 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'content-profile', b'public') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 63 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Adding (b'cookie', b'__cf_bm=5dQ8uZQv1IkNYBI8xocSeT0vG2U1asC4t1zHLg25tUA-1756017506-1.0.1.1-haAqWlxTa_vPFSuJi6BJJM7tjc.rYfz9m2gE.jzV7kfBbhY5bT07igK6Jusmn._1BSVQvLU58asJGNl3GJw8.6YonmHnGRTDwXUZaOx.yKc') to the header table, sensitive:False, huffman:True
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 32 with 6 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoding 139 with 7 bits
+2025-08-24 08:38:26 - hpack.hpack - DEBUG - Encoded header block to b'\x82\xc5\x87D\x92b\xc2\xa1,w\x0b\x15\x17\xc2?\xc4\x16\x82\x910*(\x7f\xc4\x90\xc3\xc2\xc1\x1f\x08\xff\xcf\x03\xbaQ\xd8[\x14/\xac\xb3\xc7\x88\x86\xd4l\xb98{\xc8\x1d&\xc8\x8c\x94\xa6\xbf\xdb\xd9\x1c\xc9W\x11o\xdf%\x04\x14\xf7\xf8~~\xdd&\'\xee\x97\x96\x83g\xbd\x94\x05\xfc\x84\xda\x8d\x977\x10\xec4\xbb\x17/\xac\xb5\x91\x9d\x06\xd4l\xa7\x93\x1e\xdf\x04\xf6~\xf9\xc5\x95\xc1\xe2~\xc2\xd3\xa7\xdc\x82\x92\x88\xe9\xd2\x19)\xe2\xe0\xff4\xb3\x9e\xad!&,&\xe7\xf9\xa6\x8c\xf4\xe9\xef\x9cXC&)\xbb\xc9\xd3\x01\xb3\xde\xcb\xeeNY\r\xa8\xd9=~\xe2\xc9\xe3ON\xadh0g\xd3\xbf\x83y\xf7\xec\xf1\xa3\xde\xc4\xf3\xe8O\x1a\xb7\x06\x8e}\'\xa7F-\x00\xe6.4~\xdf!\xb3\xde\xcb<\x9c\xb6\x1bQ\xb2\xcf\'\xe6\xd3\xfe\xf2l\x03\xe5\xa6y1q\xeb\x90\xde\r\xfb\xf9?\x8c\x9d\x0f\xe7O\xbe\x02\xd1\x7f\'\x9d\x1b\xe1\x0e{\xd9k\xe7\xf9\xb0\xda\xba`gN\xfe~4o t_\xe0\x8c\x94\xf1O>T#\'C\x98|\x9b\x01)\xe3\xe0|\xb6\xb9\xcf\xf3,?\xa2\x0c\xe3\xe5\xe2\xdeb}9\r\xe0\xc4\xc5?x\xe9\xe0mF\xc8l\xf7\xb2\xceLwe\x8f\x97\x10s\xe5\xb6y1`6\xaa\x90bc\xcb\xdeJh\xeb\xfb\xf9\x90\xda\x8d\x96\x88\xf9a\xae;\xd9\x11\x92\xab\xbe\xa3g\xf6\xbf\xdc\\}\x13\xd6G9z\xcbD|\xb0\xd7\x1d\xec\xb2K\xbb\xc1\xa4\xfc\xd3A(}?\xbf\x9bg\xfd\xc5\x84\x1c\xf7dp\xbe\xb2\xd1\x1f,5\xc7\x85\xf1~\xfee\xaf\xf6\x9a(\xfd\xbd\x91\xc91\xe5\x0f\xef\xe0\x11\x92\xac\xbd\xe3\xc5\xc0\xda\x8d\x96y?6\x9f\xf7\x93`\x1f-3\xc9\x8b\x8f\\\x86\xf0n|\xb0\xa3\'C\x9b\x9f,(\xd1\xbb"2S\x85$6G92\x83G\xcb\x88\x07\x89\xfe\xb9:\x1c\xc4\xc5\x87\xd9\x19\x93\xb9)\xd8l\xf7\xb2\x80|\x83A\x19\xdb<\x7f\x90\x9bWL\x0c\xe9\xdf\xcf\xc6\x8d\xe4\x0e\x8b\xfc_\xfc\xdd\xe0\xc4\x17\x1fd\x15\x1d\xe3\xa1\xfa\xffods\'K\xbdy\xf4\xd0\x0f\xdc[i\xcf\xbf,\xfa7\xf3N\x9c[\x05\xa4\xc0o\x9fN&\xcf\xbf\t\xbfqe\xa3\xf6\xfeO\x1ayhgU\xec\x88\xc9M\x1e\xff\x05\x86\xd8\xc4\xdbq\xf2|$\xf5\x91\xcf\xdap\xa0\x82\xe2\xfa\xf2y\xc3\x9d-\xee-p\xe4\xe3\xe7\xc6o\x19t\xed\x1fGdv\xbe\xbe\xbdS\xe7\xdc\xdd\xf6\xd7\xcb\xf2\xb76\xe8\xcd\xd7\xc0\xbf`\xff\x0c\x8a"K\x14t\xc0\xdc\x9b\x1e\xb7\xf7gp\xe4\xeb\xa7\x9d\xdc\x8fy97\x17x;\xe2\x17\x00\x8d\x17\x9aH}\xe3\xcf0\x9bO\x08V\x0b\xad\xb8\x00\xba\xd8\x1cX+\x81p\xae\x15\xa7\x1c=\xb9Q\xe7x\xe2\xef\xaf\x0e\xebr\x99\xcb\xb9r\xe8u=\x08\xbd\x9c\xe5\xf6\xfd"\x9b\x02\xfd=\xf1w\xac\xb7c\x9f\x9bq\xef\x03\xa6\x9b3\x99mE5/\x10n\xee\xe3\xb3\xbe~\r\xbc4e\xc5\xa6\x86qe\xf0\xf2\xees=T\xe3\xab\x16\xdd\xf7\xfc~p\xfd\x1e\xaf+\xfa\xccO'
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_headers.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_body.started request=<Request [b'GET']> stream_id=3
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - send_request_body.complete
+2025-08-24 08:38:26 - httpcore.http2 - DEBUG - receive_response_headers.started request=<Request [b'GET']> stream_id=3
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoding b'\x88\xd0\xcf^\x85\x02\xcc\xb4\xc7\xcf\x7f\x0f\x8f}\xd6\x81#\xc4v1\xb4\x19@\xd3\xab^\xd7\xbf\xce\xcd]\x8cb\xa2\xf8G\xf8\x82\xd0R&\x05E\x0f\xcc\xcb\xca\xc9\xc8\x7f\x08\x9a\x00_zA\x90\x8bF\xf4\x91\xac\xe8duh\xe4\x91\xd5\x9f\x03D)J\xe8\xda\x90\x1f\xc7\xc6\x7f\x06\x0247\xc4\xc3'
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 8, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b':status', b'200'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 80, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'date', b'Sun, 24 Aug 2025 06:38:26 GMT'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 79, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 30, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'content-range', b'0-34/*'), total consumed 7 bytes, indexed True
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 78, consumed 2 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'cf-ray', b'9740d8c7ba41f047-CPT'), total consumed 18 bytes, indexed True
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 78, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'cf-cache-status', b'DYNAMIC'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 77, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'content-encoding', b'gzip'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 29, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 12, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'content-location', b'/news?select=%2A'), total consumed 14 bytes, indexed True
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 76, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 75, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'vary', b'Accept-Encoding'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 74, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'content-profile', b'public'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 73, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'sb-gateway-version', <memory at 0x0000020012B13340>), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 72, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'sb-project-ref', b'bzhokzcswgencuvezisw'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 71, consumed 2 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 26, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'sb-request-id', b'0198dacc-b8db-71d7-bdd7-904ceee7a4d0'), total consumed 29 bytes, indexed True
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 71, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 70, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'x-envoy-attempt-count', <memory at 0x0000020012B13400>), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 69, consumed 2 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 2, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'x-envoy-upstream-service-time', <memory at 0x0000020012B13700>), total consumed 5 bytes, indexed True
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 68, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'server', b'cloudflare'), consumed 1
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded 67, consumed 1 bytes
+2025-08-24 08:38:27 - hpack.hpack - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=86400'), consumed 1
+2025-08-24 08:38:27 - httpcore.http2 - DEBUG - receive_response_headers.complete return_value=(200, [(b'date', b'Sun, 24 Aug 2025 06:38:26 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-range', b'0-34/*'), (b'cf-ray', b'9740d8c7ba41f047-CPT'), (b'cf-cache-status', b'DYNAMIC'), (b'content-encoding', b'gzip'), (b'content-location', b'/news?select=%2A'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'vary', b'Accept-Encoding'), (b'content-profile', b'public'), (b'sb-gateway-version', b'1'), (b'sb-project-ref', b'bzhokzcswgencuvezisw'), (b'sb-request-id', b'0198dacc-b8db-71d7-bdd7-904ceee7a4d0'), (b'x-content-type-options', b'nosniff'), (b'x-envoy-attempt-count', b'1'), (b'x-envoy-upstream-service-time', b'47'), (b'server', b'cloudflare'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-08-24 08:38:27 - httpx - INFO - HTTP Request: GET https://bzhokzcswgencuvezisw.supabase.co/rest/v1/news?select=%2A "HTTP/2 200 OK"
+2025-08-24 08:38:27 - httpcore.http2 - DEBUG - receive_response_body.started request=<Request [b'GET']> stream_id=3
+2025-08-24 08:38:27 - httpcore.http2 - DEBUG - receive_response_body.complete
+2025-08-24 08:38:27 - httpcore.http2 - DEBUG - response_closed.started stream_id=3
+2025-08-24 08:38:27 - httpcore.http2 - DEBUG - response_closed.complete
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'caBX' 41 46043
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - b'caBX' 41 46043 (unknown)
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 46096 65536
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'caBX' 41 46043
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - b'caBX' 41 46043 (unknown)
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 46096 65536
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'caBX' 41 47473
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - b'caBX' 41 47473 (unknown)
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 47526 65536
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'caBX' 41 47473
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - b'caBX' 41 47473 (unknown)
+2025-08-24 08:38:28 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 47526 65536
