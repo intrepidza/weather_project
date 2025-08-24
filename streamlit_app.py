@@ -6,6 +6,9 @@ from pathlib import Path
 
 from interface import *
 
+# Streamlit config:
+st.set_page_config(layout="wide")
+
 
 def generate_streamlit_data():
     # today = datetime.now().strftime('%Y_%m_%d')
