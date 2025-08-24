@@ -9,7 +9,7 @@ Used with Python version 3.11.4
 See requirements.txt file for packages.
 
 # Output
-https://intrepidza-weather-project-weather-streamlit-bci1hz.streamlit.app
+https://newsandweatherproject.streamlit.app
 
 # TODO
 - Add event for drastic number changes
