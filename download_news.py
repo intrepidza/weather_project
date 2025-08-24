@@ -7,7 +7,7 @@ import pandas as pd
 
 import requests
 
-from tools import deco_print_and_log, print_and_log
+from utils import deco_print_and_log, print_and_log
 
 
 load_dotenv()

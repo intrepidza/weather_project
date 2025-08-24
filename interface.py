@@ -6,7 +6,7 @@ from email.message import EmailMessage
 import pandas as pd
 from pathlib import Path
 
-from tools import deco_print_and_log, print_and_log
+from utils import deco_print_and_log, print_and_log
 
 # Load environment variables from .env file
 load_dotenv()
