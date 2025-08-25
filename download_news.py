@@ -35,86 +35,87 @@ def generate_news_data():
     reference_keys = ['country', 'title', 'description', 'pubDate', 'link']
 
     
-    if check_path1.exists():
-        pass
-    else:
-        # US data:
-        url = f"https://newsdata.io/api/1/latest?apikey={api_key}&country=us"
-        response = requests.get(url)
+    # if check_path1.exists():
+    #     pass
+    # else:
 
-        # Keep copy of json
-        with open(f'{root_path}/us_news_{today}.json','w', encoding='utf-8') as f:
-            json.dump(response.json().get("results", []), f, indent=4)
+    # US data:
+    url = f"https://newsdata.io/api/1/latest?apikey={api_key}&country=us"
+    response = requests.get(url)
 
-        with open(check_path1,'w', encoding='utf-8') as f:
-            try:
-                for article in response.json().get("results", []):
+    # Keep copy of json
+    with open(f'{root_path}/us_news_{today}.json','w', encoding='utf-8') as f:
+        json.dump(response.json().get("results", []), f, indent=4)
 
-                    article['country'] = 'US'
+    with open(check_path1,'w', encoding='utf-8') as f:
+        try:
+            for article in response.json().get("results", []):
 
-                    if any(cat in (article['category'] or []) for cat in ['sports']):
-                        continue
+                article['country'] = 'US'
 
-                    if any(cat in (article['creator'] or []) for cat in ["Sponsored Post"]):
-                        continue
+                if any(cat in (article['category'] or []) for cat in ['sports']):
+                    continue
 
-                    else:
-                        # record = f"* {article['country']}, Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *, * Link: {article['link']} *\n" 
-                        
-                        new_dict = {key: article[key] for key in reference_keys}
+                if any(cat in (article['creator'] or []) for cat in ["Sponsored Post"]):
+                    continue
 
-                        country, title, description, pubDate, link = new_dict.items()
+                else:
+                    # record = f"* {article['country']}, Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *, * Link: {article['link']} *\n" 
+                    
+                    new_dict = {key: article[key] for key in reference_keys}
 
-                        record = dict(country = country[1], 
-                                    content = f'* {title[0]}: {title[1]} * - * {description[0]}: {description[1]} * - * {pubDate[0]}: {pubDate[1]} *',
-                                    link = link[1]
-                        )
-                        records.append(record)
-                        f.write(f"{str(record)} /n")
+                    country, title, description, pubDate, link = new_dict.items()
 
-            except Exception as e:
-                print_and_log(f"Error! {e}")
+                    record = dict(country = country[1], 
+                                content = f'* {title[0]}: {title[1]} * - * {description[0]}: {description[1]} * - * {pubDate[0]}: {pubDate[1]} *',
+                                link = link[1]
+                    )
+                    records.append(record)
+                    f.write(f"{str(record)} /n")
+
+        except Exception as e:
+            print_and_log(f"Error! {e}")
     
-    if check_path2.exists():
-        pass
-    else:
-        # SA data:
-        url2 = f"https://newsdata.io/api/1/latest?apikey={api_key}&country=za"
-        response2 = requests.get(url2)
+    # if check_path2.exists():
+    #     pass
+    # else:
+    # SA data:
+    url2 = f"https://newsdata.io/api/1/latest?apikey={api_key}&country=za"
+    response2 = requests.get(url2)
 
-        with open(f'{root_path}/sa_news_{today}.json','w', encoding='utf-8') as f:
-            json.dump(response2.json().get("results", []), f, indent=4)
-        
+    with open(f'{root_path}/sa_news_{today}.json','w', encoding='utf-8') as f:
+        json.dump(response2.json().get("results", []), f, indent=4)
+    
 
-        with open(check_path2,'w', encoding='utf-8') as f:
-            try:
-                for article in response2.json().get("results", []):
+    with open(check_path2,'w', encoding='utf-8') as f:
+        try:
+            for article in response2.json().get("results", []):
 
-                    article['country'] = 'ZA'
-                   
-                    if any(cat in (article['category'] or []) for cat in ['sports']):
-                        continue
+                article['country'] = 'ZA'
+                
+                if any(cat in (article['category'] or []) for cat in ['sports']):
+                    continue
 
-                    if any(cat in (article['creator'] or []) for cat in ["Sponsored Post"]):
-                        continue
+                if any(cat in (article['creator'] or []) for cat in ["Sponsored Post"]):
+                    continue
 
-                    else:
-                        # record2 = [{article['country']},{article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *, * Link: {article['link']} *\n" 
-                        # record2 = f"* {article['country']}, Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *, * Link: {article['link']} *\n" 
+                else:
+                    # record2 = [{article['country']},{article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *, * Link: {article['link']} *\n" 
+                    # record2 = f"* {article['country']}, Title: {article['title']} * - * Article: {article['description']} * - * Published: {article['pubDate']} *, * Link: {article['link']} *\n" 
 
-                        new_dict = {key: article[key] for key in reference_keys}
+                    new_dict = {key: article[key] for key in reference_keys}
 
-                        country, title, description, pubDate, link = new_dict.items()
+                    country, title, description, pubDate, link = new_dict.items()
 
-                        record2 = dict(country = country[1], 
-                                    content = f'* {title[0]}: {title[1]} * - * {description[0]}: {description[1]} * - * {pubDate[0]}: {pubDate[1]} *',
-                                    link = link[1]
-                        )
-                        records2.append(record2)
-                        f.write(f"{str(record2)} /n")
+                    record2 = dict(country = country[1], 
+                                content = f'* {title[0]}: {title[1]} * - * {description[0]}: {description[1]} * - * {pubDate[0]}: {pubDate[1]} *',
+                                link = link[1]
+                    )
+                    records2.append(record2)
+                    f.write(f"{str(record2)} /n")
 
-            except Exception as e:
-                print_and_log(f"Error! {e}")
+        except Exception as e:
+            print_and_log(f"Error! {e}")
     
     records = pd.DataFrame(records)
     records2 = pd.DataFrame(records2)

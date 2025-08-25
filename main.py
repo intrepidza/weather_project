@@ -3,11 +3,13 @@ from datetime import datetime
 from download_news import generate_news_data
 from download_weather import download_weather_data, generate_csv_and_dataframe
 from file_cleanup import remove_old_files
-from interface import create_email, load_into_supabase
+from interface import create_email, load_into_supabase, create_supabase_connection, truncate_supabase_table
 # from weather_reader import read_and_process
 from utils import deco_print_and_log, print_and_log
 
 print('-----==========-----')
+
+
 
 @deco_print_and_log("App")
 def main():
@@ -15,20 +17,26 @@ def main():
     url = 'https://api.open-meteo.com/v1/forecast?latitude=-34.084&longitude=18.8211&hourly=temperature_2m,rain,wind_direction_10m,wind_speed_10m,visibility,relative_humidity_2m,precipitation_probability,apparent_temperature,showers'
 
     try:
+        connect, user = create_supabase_connection()
+
         news_output = generate_news_data()
 
         news_output[0].to_csv('US_output.txt')
         news_output[1].to_csv('SA_output.txt')
 
-        load_into_supabase('news', news_output[0])
+        truncate_supabase_table('news', connect)
 
-        load_into_supabase('news', news_output[1])
+        load_into_supabase('news', news_output[0], connect, user)
+
+        load_into_supabase('news', news_output[1], connect, user)
 
         output = download_weather_data(url)
 
         data = generate_csv_and_dataframe(output)
 
-        load_into_supabase('weather', data)
+        truncate_supabase_table('weather', connect)
+
+        load_into_supabase('weather', data, connect, user)
 
         remove_old_files()
 

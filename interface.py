@@ -33,12 +33,19 @@ def create_supabase_connection():
     return supabase, user
 
 
+@deco_print_and_log("Truncate table")
+def truncate_supabase_table(table, connect):
+    print_and_log(f"Removing old {table} data.")
+    try:
+        response = connect.rpc(f"truncate_{table}").execute()
+    except Exception as e:
+        print_and_log(f"Error when attempting to remove old {table} data {e}")
+
+
 @deco_print_and_log("Load data into Supabase")
-def load_into_supabase(table, df=None):
+def load_into_supabase(table, df, connect, user):
     # Establish Supabase connection
-    supabase = create_supabase_connection()
-    connect = supabase[0]
-    user = supabase[1]
+
 
     # if df is None: # Get latest available file: 
     #     output_dir = Path.cwd() / "output_files/weather/"
@@ -52,13 +59,6 @@ def load_into_supabase(table, df=None):
     df['user_id'] = user.user.id
     data = df.to_dict(orient='records')
     
-
-    print_and_log(f"Removing old {table} data.")
-    try:
-        response = connect.rpc(f"truncate_{table}").execute()
-    except Exception as e:
-        print_and_log(f"Error when attempting to remove old {table} data {e}")
-
     # data = [{'time': '2025-08-23 00:00:00', 
     # 'temperature': 12.0, 
     # 'rain': 0.0, 
@@ -71,12 +71,13 @@ def load_into_supabase(table, df=None):
     # 'user_id': '2db06982-a559-4034-b709-eb8f0c4ceed7'
     # }]
 
+    print_and_log(f"Inserting data into table {table}.")
     try:
         response = connect.table(table).insert(data).execute()
     except Exception as e:
         print_and_log(f"Error when attempting to insert data into {table} table: {e}")
 
-    connect.auth.sign_out()
+    # connect.auth.sign_out()
 
 # load_into_supabase('news')
 
