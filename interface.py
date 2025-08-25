@@ -18,7 +18,7 @@ supabase_pass = os.getenv("SUPABASE_PASS") or ""
 gmail_email = os.getenv("APP_EMAIL") or ""
 gmail_pass = os.getenv("APP_PASS") or ""
 
-@deco_print_and_log("Connecting to Supabase")
+@deco_print_and_log("Create Supabase Connection")
 def create_supabase_connection():
     try:
         supabase = create_client(supabase_url, supabase_key)
@@ -53,13 +53,12 @@ def load_into_supabase(table, df=None):
     data = df.to_dict(orient='records')
     
 
-    if table == 'weather':
-        print_and_log("Removing old data.")
-        try:
-            response = connect.rpc("truncate_weather").execute()
-        except Exception as e:
-            print_and_log(f"Error when attempting to remove old data {e}")
-    
+    print_and_log(f"Removing old {table} data.")
+    try:
+        response = connect.rpc(f"truncate_{table}").execute()
+    except Exception as e:
+        print_and_log(f"Error when attempting to remove old {table} data {e}")
+
     # data = [{'time': '2025-08-23 00:00:00', 
     # 'temperature': 12.0, 
     # 'rain': 0.0, 
@@ -75,11 +74,11 @@ def load_into_supabase(table, df=None):
     try:
         response = connect.table(table).insert(data).execute()
     except Exception as e:
-        print_and_log(f"Error when attempting to insert data {e}")
+        print_and_log(f"Error when attempting to insert data into {table} table: {e}")
 
     connect.auth.sign_out()
 
-# load_into_supabase('weather')
+# load_into_supabase('news')
 
 
 @deco_print_and_log("Generating e-mail")

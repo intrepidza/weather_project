@@ -17,6 +17,9 @@ def main():
     try:
         news_output = generate_news_data()
 
+        news_output[0].to_csv('US_output.txt')
+        news_output[1].to_csv('SA_output.txt')
+
         load_into_supabase('news', news_output[0])
 
         load_into_supabase('news', news_output[1])
@@ -35,7 +38,32 @@ def main():
                         'Content':'All App processes have finished running. \n\nReview at: https://newsandweatherproject.streamlit.app'
                     }
         )
-       
+
+
+
+        # Regenerate README.md file:
+        readme_data = """
+        This is a Weather API Github Project.
+
+        Using it to experiment with.
+
+        # Installation
+        Used with Python version 3.11.4
+        See requirements.txt file for packages.
+
+        # Output
+        https://newsandweatherproject.streamlit.app
+
+        # TODO
+        - Add e-mail event for drastic number changes
+        - Fix truncation logic for news data
+        - Testing
+        """
+
+        with open('README.md', 'w') as f:
+            f.write(readme_data)
+
+
     except Exception as e:
         print_and_log(e)    
     
