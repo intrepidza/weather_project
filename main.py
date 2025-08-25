@@ -21,8 +21,8 @@ def main():
 
         news_output = generate_news_data()
 
-        news_output[0].to_csv('US_output.txt')
-        news_output[1].to_csv('SA_output.txt')
+        # news_output[0].to_csv('us_news_dump.txt')
+        # news_output[1].to_csv('sa_news_dump.txt')
 
         truncate_supabase_table('news', connect)
 
