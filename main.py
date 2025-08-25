@@ -32,7 +32,7 @@ def main():
         create_email(
                     {
                         'Subject': 'App run completed',
-                        'Content':'All App processes have finished running. \n\nReview at: https://intrepidza-weather-project-weather-streamlit-bci1hz.streamlit.app'
+                        'Content':'All App processes have finished running. \n\nReview at: https://newsandweatherproject.streamlit.app'
                     }
         )
        
